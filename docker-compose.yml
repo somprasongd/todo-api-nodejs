@@ -1,0 +1,23 @@
+version: '2.4'
+
+services:
+  web:
+    image: nginx
+    ports:
+      - '8080:80'
+    depends_on:
+      api:
+        # Version 3 no longer supports the condition form of depends_on.
+        condition: service_healthy
+
+  api:
+    image: todo-api:${APPNAME_RELEASE:-dev}
+    build: .
+    env_file:
+      - .env
+    environment:
+      NODE_ENV: production
+    ports:
+      - 3000:3000
+    healthcheck:
+      test: curl -f http://127.0.0.1:3000

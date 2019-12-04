@@ -1,0 +1,53 @@
+{
+  "name": "todo-api-nodejs",
+  "version": "1.0.0",
+  "description": "Todo APIs with Nodejs",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "nodemon src/index.js --exec babel-node -e js",
+    "clean": "rm -rf dist",
+    "build": "npm run clean && mkdir dist && babel src -s -d dist --copy-files",
+    "prod": "export NODE_ENV=production||set NODE_ENV=production&&npm run build&&node dist/index.js",
+    "start": "node dist/index.js",
+    "lint": "eslint src/ --fix"
+  },
+  "keywords": [],
+  "author": "Somprasong Damyos",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/somprasongd/todo-api-nodejs.git"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "uuid": "^3.3.3"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.0",
+    "@babel/node": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.0.0",
+    "@babel/plugin-proposal-decorators": "^7.6.0",
+    "@babel/plugin-proposal-do-expressions": "^7.6.0",
+    "@babel/plugin-proposal-export-default-from": "^7.5.2",
+    "@babel/plugin-proposal-export-namespace-from": "^7.5.2",
+    "@babel/plugin-proposal-function-bind": "^7.2.0",
+    "@babel/plugin-proposal-function-sent": "^7.5.0",
+    "@babel/plugin-proposal-logical-assignment-operators": "^7.2.0",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.4.4",
+    "@babel/plugin-proposal-numeric-separator": "^7.2.0",
+    "@babel/plugin-proposal-optional-chaining": "^7.6.0",
+    "@babel/plugin-proposal-pipeline-operator": "^7.0.0",
+    "@babel/plugin-proposal-throw-expressions": "^7.2.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    "@babel/plugin-syntax-import-meta": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "eslint": "^5.1.0",
+    "eslint-config-airbnb-base": "^13.0.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-prettier": "^2.6.2",
+    "nodemon": "^1.17.5",
+    "prettier": "^1.13.7"
+  }
+}
